@@ -1,8 +1,11 @@
+import Header from "./components/Header";
 
 function App() {
-  return <>
-  <h2>Contact App</h2>
-  </>;
+  return (
+    <>
+      <Header/>
+    </>
+  );
 }
 
 export default App;
