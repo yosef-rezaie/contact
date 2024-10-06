@@ -2,6 +2,7 @@ import { useState } from "react";
 import ContactsList from "./ContactsList";
 
 function Contacts() {
+  const [alert, setAlert] = useState("");
   const [contacts, setContacts] = useState([]);
   const [contact, setContact] = useState({
     name: "",
@@ -19,6 +20,11 @@ function Contacts() {
 
   const addHandler = () => {
     console.log(contact);
+    if (!contact.name || !contact.lastName || !contact.email || !contact.phone) {
+      setAlert("please enter valid data!");
+      return;
+    }
+    setAlert("");
     setContacts([...contacts, contact]);
     setContact({
       name: "",
@@ -62,6 +68,7 @@ function Contacts() {
         />
         <button onClick={addHandler}>Add Contact</button>
       </div>
+      <div>{alert && <p>{alert}</p>}</div>
       <ContactsList contacts={contacts} />
     </div>
   );
