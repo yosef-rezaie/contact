@@ -1,5 +1,6 @@
 import { useState } from "react";
 import ContactsList from "./ContactsList";
+import { v4 } from "uuid";
 
 const inputs = [
   { type: "text", name: "name", placeHolder: "Name" },
@@ -12,6 +13,7 @@ function Contacts() {
   const [alert, setAlert] = useState("");
   const [contacts, setContacts] = useState([]);
   const [contact, setContact] = useState({
+    id: "",
     name: "",
     lastName: "",
     email: "",
@@ -26,7 +28,6 @@ function Contacts() {
   };
 
   const addHandler = () => {
-    console.log(contact);
     if (
       !contact.name ||
       !contact.lastName ||
@@ -37,7 +38,8 @@ function Contacts() {
       return;
     }
     setAlert("");
-    setContacts([...contacts, contact]);
+    const newContact = { ...contact, id: v4() };
+    setContacts([...contacts, newContact]);
     setContact({
       name: "",
       lastName: "",
