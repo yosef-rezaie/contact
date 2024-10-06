@@ -1,12 +1,18 @@
-function ContactsList({contacts}) {
+function ContactsList({ contacts }) {
   return (
     <div>
       <h3>ContactsList</h3>
-      <ul>
-        {contacts.map(contact => <li key={contact.id}>{contact.name}</li>)}
-      </ul>
+      {contacts.length ? <ul>
+        {contacts.map((contact) => (
+          <li key={contact.id}>
+            <p>{contact.name}</p> <p>{contact.lastName}</p>
+            <p>{contact.emai}</p> <p>{contact.phone}</p>
+            <button>Delete</button>
+          </li>
+        ))}
+      </ul> : <p>No Contacts Yet !</p>}
     </div>
-  )
+  );
 }
 
-export default ContactsList
+export default ContactsList;
