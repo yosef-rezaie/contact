@@ -13,6 +13,7 @@ dist-ssr
 *.local
 README.json
 README.md
+eslint.config.js
 
 # Editor directories and files
 .vscode/*
