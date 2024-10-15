@@ -52,7 +52,7 @@ function Contacts() {
 
   const deleteHandler = (id) => {
     const newContacts = contacts.filter((contact) => contact.id !== id);
-    setContact(newContacts);
+    setContacts(newContacts);
   };
 
   return (
